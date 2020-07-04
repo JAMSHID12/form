@@ -1,7 +1,7 @@
 import random
 names = ["jamshid", "gopika", "alen", "amal"]
 rand = random.choice(names)
-print(rand)   
+print(rand)
 print(random.randint(1001, 9999))
 print(random.randrange(100, 9999,8))
 
