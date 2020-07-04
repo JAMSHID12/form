@@ -5,7 +5,10 @@ def checkvalue():
         return True
     else:
         return False
-    
+    def definevalue():
+        if x in list_value:
+            print(x)
+
 
 t = checkvalue()
 print(t)
