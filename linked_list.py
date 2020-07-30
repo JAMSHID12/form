@@ -90,10 +90,26 @@ class LinkesList:
 
             itr = itr.next
 
+    def remove_by_value(self, data):
+        if self.head is None:
+            return
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        itr = self.head
+        while itr:
+            if itr.next.data == data:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+
 
 if __name__ == '__main__':
     obj = LinkesList()
     obj.insert_list_value(['mango', 'banana', 'orange'])
-    print(obj.count_length())
     obj.insert_after_values('banana', 'apple')
+    obj.remove_by_value('mango')
+    obj.remove_by_value('apple')
+    obj.remove_by_value('orange')
     obj.Print()
+    print(obj.count_length())
