@@ -76,12 +76,24 @@ class LinkesList:
                 itr.next = node
             itr = itr.next
             cound = cound + 1
+    def insert_after_values(self, data_current, data_after):
+        if self.head  is None :
+            raise Exception('current data is not available in your list')
+        if self.head.data == data_current:
+            self.head.next = Node(data_after, self.head.next)
+            return
+        itr = self.head
+        while itr:
+            if itr.data == data_current:
+                itr.next = Node(data_after, itr.next)
+                break
+
+            itr = itr.next
 
 
 if __name__ == '__main__':
     obj = LinkesList()
     obj.insert_list_value(['mango', 'banana', 'orange'])
     print(obj.count_length())
-    obj.insert_at_index('ramboottan', 1)
-    obj.insert_at_index('jackfrout', 3)
+    obj.insert_after_values('banana', 'apple')
     obj.Print()
