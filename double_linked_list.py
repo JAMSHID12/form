@@ -83,9 +83,31 @@ class Double_linked_list:
             itr = itr.next
             count += 1
 
+    def remove_at(self, pos):
+        if pos < 0 and pos > self.get_length():
+            raise Exception('error')
+            return
+        if pos == 0:
+            self.head = self.head.next
+            self.head.prev = None
+            return
+        count = 0
+        itr = self.head
+        while itr:
+            if count == pos:
+                itr.prev.next = itr.next
+                if itr.next:
+                    itr.next.prev = itr.prev
+                break
+
+            itr = itr.next
+            count += 1
+
+
 
 if __name__ == '__main__':
     dl = Double_linked_list()
     dl.insert_values(['ram', 'dul'])
     dl.insert_at_position(1, 'mathew')
+    dl.remove_at(2)
     dl.print_list_forword()
